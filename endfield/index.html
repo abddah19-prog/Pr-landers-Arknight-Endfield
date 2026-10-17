@@ -3,24 +3,82 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Arknights: Endfield</title>
-<meta name="theme-color" content="#000000">
+<title>Arknights: Endfield – Téléchargez maintenant</title>
+<meta name="description" content="Arknights: Endfield – téléchargez gratuitement le RPG d'exploration et de stratégie en temps réel.">
+<meta property="og:title" content="Arknights: Endfield">
+<meta property="og:image" content="assets/hero.webp">
+<meta name="theme-color" content="#f6f3ea">
+<link rel="preload" as="image" href="assets/hero.webp">
 <style>
+  :root {
+    --paper: #f6f3ea;
+    --gold: #d7b775;
+  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { width: 100%; height: 100%; overflow: hidden; background: #000; }
-  iframe {
-    position: fixed; inset: 0;
+  html, body { height: 100%; }
+  body {
+    background: var(--paper);
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+  a { display: block; color: inherit; text-decoration: none; }
+
+  .page {
+    position: relative;
+    display: flex; flex-direction: column;
+    height: 100vh; height: 100dvh;
+  }
+
+  /* ---------- Key art ---------- */
+  .art {
+    position: relative; flex: 1; min-height: 0; overflow: hidden;
+  }
+  .art img {
+    position: absolute; inset: 0;
     width: 100%; height: 100%;
-    border: 0; display: block;
+    object-fit: cover;
+    object-position: 50.6% 100%;
+    animation: zoom 18s ease-out both;
+  }
+  .art::after {
+    content: ""; position: absolute; inset: auto 0 0 0; height: 18%;
+    background: linear-gradient(to bottom, rgba(246,243,234,0), var(--paper));
+    pointer-events: none;
+  }
+  @keyframes zoom { from { transform: scale(1.06); } to { transform: scale(1); } }
+
+  /* ---------- CTA ---------- */
+  .cta-zone {
+    flex: none;
+    display: flex; justify-content: center; align-items: flex-start;
+    padding: 8px 16px calc(28px + env(safe-area-inset-bottom));
+  }
+  .cta {
+    width: min(787px, 92vw);
+    filter: drop-shadow(0 8px 18px rgba(0,0,0,.25));
+    animation: pulse 1.8s ease-in-out infinite;
+    transition: filter .2s;
+  }
+  .cta:hover { filter: drop-shadow(0 10px 22px rgba(0,0,0,.35)) brightness(1.08); }
+  .cta img { display: block; width: 100%; height: auto; }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.035); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .art img, .cta { animation: none; }
   }
 </style>
 </head>
 <body>
-<iframe
-  src="https://endfield.gryphline.com/landing/ua/obt?hg_media=pwn&amp;hg_link_code=kuwtSEl2&amp;transaction_id=0065c4456c4d4f7faff4b020508fc024&amp;hg_campaign_id=119&amp;hg_adset_id=4670&amp;hg_ad_id=5105"
-  title="Arknights: Endfield"
-  allow="autoplay; fullscreen; encrypted-media; clipboard-write"
-  allowfullscreen
-  referrerpolicy="no-referrer-when-downgrade"></iframe>
+<a class="page" id="offer" href="https://endfield.gryphline.com/landing/ua/obt?hg_media=pwn&amp;hg_link_code=kuwtSEl2&amp;transaction_id=0065c4456c4d4f7faff4b020508fc024&amp;hg_campaign_id=119&amp;hg_adset_id=4670&amp;hg_ad_id=5105" aria-label="Arknights: Endfield – Download Now">
+  <div class="art">
+    <img src="assets/hero.webp" alt="Arknights: Endfield" width="1880" height="746" fetchpriority="high">
+  </div>
+  <div class="cta-zone">
+    <span class="cta"><img src="assets/download-now.png" alt="Download Now" width="787" height="105"></span>
+  </div>
+</a>
 </body>
 </html>
